@@ -1,4 +1,3 @@
-import React from "react";
 import iconPoint from "../../assets/icons/icon-point.svg";
 import iconBrain from "../../assets/icons/icon-card-brain.svg";
 import iconHeart from "../../assets/icons/icon-card-heart.svg";
