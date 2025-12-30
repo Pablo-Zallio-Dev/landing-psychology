@@ -5,6 +5,7 @@ import About from './components/pages/About'
 import BtnBack from './components/ui/BtnBack'
 import Review from './components/pages/Review'
 import Quote from './components/pages/Quote'
+import Contact from './components/pages/Contact'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Review />
         <BtnBack />
         <Quote />
+        <Contact />
         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
       </main>
     </div>

@@ -79,11 +79,10 @@ const Quote = () => {
                   servicio *
                 </label>
                 <select
+                  required
                   id=""
                   
-                  {...register('servicio',{
-                    required: true
-                  })}
+                  {...register('servicio')}
                   className=" border-none rounded-sm text-xs p-1.5 focus:border focus:border-gray-500 focus:outline-4 focus:outline-gray-300 bg-gray-100"
                   
                 >
@@ -92,7 +91,7 @@ const Quote = () => {
                     className=" text-xs bg-white hover:bg-gray-100 p-4 "
                   >Selecciona un servicio</option>
                   <option
-                    value=""
+                    value="jovenes"
                     className=" text-xs bg-white hover:bg-gray-100 p-4 "
                   >
                     Terapia para adicciones en Jóvenes
@@ -164,13 +163,12 @@ const Quote = () => {
               </div>
 
               <div className=" w-full sm:col-span-2  flex flex-col gap-1 ">
-                <label className=" font-bold text-xs  ">
+                <label className=" font-bold text-xs " >
                   <img src={iconNote} alt="" className=" inline " /> Notas adicionales
                 </label>
                 <textarea
                 {...register('notas')}
-                  name=""
-                  id=""
+                  id="notas"
                   className=" p-1.5 text-xs resize-none h-16 focus:border focus:border-gray-500 focus:outline-4 focus:outline-gray-300 rounded-sm w-full  bg-gray-100"
                   placeholder="Describe brevemente el motivo de la consulta o cualquier información relevente..."
                 />
