@@ -11,28 +11,24 @@ import { createPortal } from "react-dom";
 
 const Quote = () => {
   const { register, handleSubmit, reset } = useForm();
-  const [send, setSend] = useState(false)
+  const [send, setSend] = useState(false);
 
+  const onSubmit = (data: object) => {
+    console.log(data);
+    setSend(true);
+    reset();
+  };
 
-  const onSubmit = (data:object) => {
-    console.log(data)
+  const closePortal = () => {
+    setSend(false);
+  };
 
-    setSend(true)
-
-    reset()
-    
-  }
-
-  const closePortal= () => {
-    setSend(false)
-
-  }
-  
-
- 
   return (
     <>
-      <section id="quote" className=" flex flex-col gap-10  my-20 px-3 items-center ">
+      <section
+        id="quote"
+        className=" flex flex-col gap-10  my-20 px-3 items-center "
+      >
         <p className=" text-3xl ">Agendar Cita</p>
         <p className=" max-w-xl text-center leading-6 text-slate-600 ">
           Programa tu consulta de manera sencilla. Selecciona el servicio que
@@ -58,21 +54,21 @@ const Quote = () => {
                   type="text"
                   id="nombre"
                   required
-                  {...register('nombre', {
-      required: "El nombre es obligatorio",
-      pattern: {
-        value: /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/,
-        message: "Solo se admiten letras (sin números ni símbolos)"
-      },
-      minLength: {
-        value: 2,
-        message: "El nombre es demasiado corto"
-      }
-    })}
+                  {...register("nombre", {
+                    required: "El nombre es obligatorio",
+                    pattern: {
+                      value: /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/,
+                      message:
+                        "Solo se admiten letras (sin números ni símbolos)",
+                    },
+                    minLength: {
+                      value: 2,
+                      message: "El nombre es demasiado corto",
+                    },
+                  })}
                   className=" rounded-sm text-xs p-1.5 focus:border focus:border-gray-500 focus:outline-4 focus:outline-gray-300 bg-gray-100"
                   placeholder="Tu nombre completo"
                 />
-            
               </div>
 
               <div className=" w-full  flex flex-col gap-1 ">
@@ -83,7 +79,7 @@ const Quote = () => {
                   type="email"
                   id="email"
                   required
-                  {...register('email')}
+                  {...register("email")}
                   className=" rounded-sm text-xs p-1.5 focus:border focus:border-gray-500 focus:outline-4 focus:outline-gray-300 bg-gray-100"
                   placeholder="Tu@email.com"
                 />
@@ -96,7 +92,7 @@ const Quote = () => {
                 <input
                   type="number"
                   id="phone"
-                  {...register('telefono')}
+                  {...register("telefono")}
                   className=" rounded-sm text-xs p-1.5 focus:border focus:border-gray-500 focus:outline-4 focus:outline-gray-300 bg-gray-100"
                   placeholder="+34 12 345 67 89"
                 />
@@ -110,14 +106,15 @@ const Quote = () => {
                 <select
                   required
                   id="servicio"
-                  {...register('servicio')}
+                  {...register("servicio")}
                   className=" border-none rounded-sm text-xs p-1.5 focus:border focus:border-gray-500 focus:outline-4 focus:outline-gray-300 bg-gray-100"
-                  
                 >
                   <option
                     value=""
                     className=" text-xs bg-white hover:bg-gray-100 p-4 "
-                  >Selecciona un servicio</option>
+                  >
+                    Selecciona un servicio
+                  </option>
                   <option
                     value="jovenes"
                     className=" text-xs bg-white hover:bg-gray-100 p-4 "
@@ -169,9 +166,9 @@ const Quote = () => {
                   Fecha Preferida *
                 </label>
                 <input
-                {...register('fecha')}
-                required
-                id="date"
+                  {...register("fecha")}
+                  required
+                  id="date"
                   type="date"
                   className=" rounded-sm text-xs p-1.5 focus:border focus:border-gray-500 focus:outline-4 focus:outline-gray-300 bg-gray-100"
                   placeholder="Selecciona una hora"
@@ -184,20 +181,21 @@ const Quote = () => {
                   preferida *
                 </label>
                 <input
-                {...register('hora')}
-                required
-                id="time"
+                  {...register("hora")}
+                  required
+                  id="time"
                   type="time"
                   className=" rounded-sm text-xs p-1 focus:border focus:border-gray-500 focus:outline-4 focus:outline-gray-300 bg-gray-100"
                 />
               </div>
 
               <div className=" w-full sm:col-span-2  flex flex-col gap-1 ">
-                <label htmlFor="notas" className=" font-bold text-xs " >
-                  <img src={iconNote} alt="" className=" inline " /> Notas adicionales
+                <label htmlFor="notas" className=" font-bold text-xs ">
+                  <img src={iconNote} alt="" className=" inline " /> Notas
+                  adicionales
                 </label>
                 <textarea
-                {...register('notas')}
+                  {...register("notas")}
                   id="notas"
                   className=" p-1.5 text-xs resize-none h-16 focus:border focus:border-gray-500 focus:outline-4 focus:outline-gray-300 rounded-sm w-full  bg-gray-100"
                   placeholder="Describe brevemente el motivo de la consulta o cualquier información relevente..."
@@ -206,37 +204,46 @@ const Quote = () => {
 
               <div className=" w-full sm:col-span-2 p-3 bg-blue-100 rounded-md ">
                 <p className="   text-sm ">
-                 <b className="text-gray-700">Nota importante:</b>  Una vez enviada tu solicitud, te
-                  contactaremos en un plazo de 24 horas para confirmar la
-                  disponibilidad y finalizar el agendamiento.<br /> <br /> Para emergencias,
-                  por favor contacta directamente al teléfono de emergencias.
+                  <b className="text-gray-700">Nota importante:</b> Una vez
+                  enviada tu solicitud, te contactaremos en un plazo de 24 horas
+                  para confirmar la disponibilidad y finalizar el agendamiento.
+                  <br /> <br /> Para emergencias, por favor contacta
+                  directamente al teléfono de emergencias.
                 </p>
               </div>
 
               <div className=" w-full sm:col-span-2 p-1.5 bg-blue-600 hover:bg-blue-700 transition-colors duration-200 text-white text-xs text-center font-bold rounded-md ">
-                <input type="submit" value="Solicitar cita" className="w-full "  />
-                  {
-                        send && createPortal(
-                              <>
-                                    <section className=" fixed top-0 left-0 flex justify-center items-center w-full h-full bg-blue-600/20  ">
-                                    <section className=" flex flex-col items-center  bg-white p-6 rounded-md ">
-                                          <p className=" text-lg font-medium ">Su cita se proceso correctamente</p>
-                                          <p className="  font-medium ">¡Muchas gracias!</p>
-                                          <button className=" mt-5 bg-blue-400 py-1 px-4 rounded-md text-gray-100 " onClick={closePortal}>Volver</button>
-                                    </section>
-                                    </section>
-                              </>,
-                              document.body
-                        )
-                  }
+                <input
+                  type="submit"
+                  value="Solicitar cita"
+                  className="w-full "
+                />
+                {send &&
+                  createPortal(
+                    <>
+                      <section className=" fixed top-0 left-0 flex justify-center items-center w-full h-full bg-blue-600/20  ">
+                        <section className=" flex flex-col items-center  bg-white p-6 rounded-md ">
+                          <p className=" text-lg font-medium ">
+                            Su cita se proceso correctamente
+                          </p>
+                          <p className="  font-medium ">¡Muchas gracias!</p>
+                          <button
+                            className=" mt-5 bg-blue-400 py-1 px-4 rounded-md text-gray-100 "
+                            onClick={closePortal}
+                          >
+                            Volver
+                          </button>
+                        </section>
+                      </section>
+                    </>,
+                    document.body
+                  )}
               </div>
             </form>
           </section>
         </section>
       </section>
-      {
-
-      }
+      {}
     </>
   );
 };

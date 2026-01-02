@@ -20,16 +20,21 @@ const Home = () => {
           </p>
         </section>
         <section className=" flex flex-col gap-4 my-8 sm:flex-row">
-          <a href="#quote" className="primary py-3 px-4 text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200">
+          <a
+            href="#quote"
+            className="primary py-3 px-4 text-center text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
+          >
             Solicitar consulta
           </a>
-          <a href="#services" className="primary py-3 px-4 bg-white border border-gray-300 hover:bg-gray-100 transition-colors duration-200">
+          <a
+            href="#services"
+            className="primary py-3 px-4 text-center bg-white border border-gray-300 hover:bg-gray-100 transition-colors duration-200"
+          >
             Conocer Servicios
           </a>
         </section>
         <section className=" flex flex-col sm:flex-row gap-6 sm:justify-between mb-8 lg:mb-0 ">
           <section className="flex items-center gap-3 ">
-            {/* svg */}
             <article className=" w-min rounded-lg bg-blue-100 p-1.5 ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -43,14 +48,12 @@ const Home = () => {
                 />
               </svg>
             </article>
-            {/* section */}
             <section className="">
               <p className=" text-sm text-slate-600 ">Enfoque</p>
               <p className="font-medium text-slate-900">Compasivo</p>
             </section>
           </section>
           <section className="flex items-center gap-3 ">
-            {/* svg */}
             <article className=" w-min rounded-lg bg-green-100 p-1.5 ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -64,14 +67,12 @@ const Home = () => {
                 />
               </svg>
             </article>
-            {/* section */}
             <section className="">
               <p className=" text-sm text-slate-600 ">Ambiente</p>
               <p className="font-medium text-slate-900">Seguro</p>
             </section>
           </section>
           <section className="flex items-center gap-3 ">
-            {/* svg */}
             <article className=" w-min rounded-lg bg-purple-100 p-1.5 ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +86,6 @@ const Home = () => {
                 />
               </svg>
             </article>
-            {/* section */}
             <section className="">
               <p className=" text-sm text-slate-600 ">Disponibilidad</p>
               <p className="font-medium text-slate-900">Flexible</p>

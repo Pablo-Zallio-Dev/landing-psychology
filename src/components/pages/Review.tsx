@@ -1,14 +1,14 @@
 import iconQuote from "../../assets/icons/icon-quote.svg";
 import iconStar from "../../assets/icons/icon-star.svg";
-import Button from "../ui/Button";
 
 const Review = () => {
   return (
     <>
-      <section id="review" className=" flex flex-col items-center justify-center gap-20 py-14 ">
-        {/* Contenedor de la seccion */}
+      <section
+        id="review"
+        className=" flex flex-col items-center justify-center gap-20 py-14 "
+      >
         <section className=" px-3 max-w-2xl text-center lg:text-lg ">
-          {/* Titulo de la seccion */}
           <h1 className=" text-3xl  ">Testimonios</h1>
           <p className=" my-6 text-slate-600">
             Estas son algunas experiencias reales de pacientes que han
@@ -183,18 +183,19 @@ const Review = () => {
             tus propios desafíos, no dudes en dar el primer paso.
           </p>
           <section className=" flex flex-col sm:flex-row gap-4 ">
-            <Button
+            <a
+            
               type="button"
               className="btn btn-primary primary py-3 px-4 text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
             >
               <a href="#quote"> Agendar mi primera cita </a>
-            </Button>
-            <Button
+            </a>
+            <a
               type="button"
               className=" btn btn-primary border border-blue-700 rounded-md py-2 px-4 text-sm text-blue-700 "
             >
               <a href=""> Hacer una consulta </a>
-            </Button>
+            </a>
           </section>
         </section>
       </section>

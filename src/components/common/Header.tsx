@@ -29,40 +29,33 @@ const Header = () => {
     };
   }, [menuIsOpen, closeMenu]);
 
-  console.log(menuIsOpen);
-
   return (
     <>
-    <div id="header" className=" mt-12 " ref={headerRef}>
-      {/* logo mobile */}
-      <section className=" flex justify-center border border-x-0 border-y-gray-300  ">
-        <section className="  relative flex items-center justify-between p-3.5 py-4 w-full xl:w-7xl ">
-          <Logo />
+      <div id="header" className=" mt-12 " ref={headerRef}>
+        <section className=" flex justify-center border border-x-0 border-y-gray-300  ">
+          <section className="  relative flex items-center justify-between p-3.5 py-4 w-full xl:w-7xl ">
+            <Logo />
 
-          {/* menu desktop */}
-          <MenuDesktop />
-          {/* btn menu mobile */}
-          {!menuIsOpen ? (
-            <button
-              className="text-[.65rem] font-bold text-gray-700 lg:hidden "
-              onClick={changeState}
-            >
-              MENU
-            </button>
-          ) : (
-            <button
-              className="text-[.65rem] font-bold text-gray-700 lg:hidden "
-              onClick={changeState}
-            >
-              CLOSE
-            </button>
-          )}
-          {/* menu mobile */}
+            <MenuDesktop />
+            {!menuIsOpen ? (
+              <button
+                className="text-[.65rem] font-bold text-gray-700 lg:hidden "
+                onClick={changeState}
+              >
+                MENU
+              </button>
+            ) : (
+              <button
+                className="text-[.65rem] font-bold text-gray-700 lg:hidden "
+                onClick={changeState}
+              >
+                CLOSE
+              </button>
+            )}
+          </section>
         </section>
-      </section>
-      {menuIsOpen && <MenuMobile />}
-    </div>
-    
+        {menuIsOpen && <MenuMobile />}
+      </div>
     </>
   );
 };
