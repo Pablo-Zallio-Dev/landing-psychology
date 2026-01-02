@@ -5,13 +5,27 @@ import iconProfile from "../../assets/icons/icon-form-profile.svg";
 import iconEmail from "../../assets/icons/icon-form-email.svg";
 import iconPhone from "../../assets/icons/icon-form-phone.svg";
 import iconCalendarForm from "../../assets/icons/icon-form-calendar.svg";
+import { useState } from "react";
+import { createPortal } from "react-dom";
 
 const FormContact = () => {
-      const { register, handleSubmit } = useForm();
+      const { register, handleSubmit, reset } = useForm();
+      const [send, setSend] = useState(false)
+
 
       const onSubmit = (data: object) => {
-            console.log(data);
-      };
+            console.log(data)
+
+            setSend(true)
+
+            reset()
+
+      }
+
+      const closePortal = () => {
+            setSend(false)
+
+      }
       return (
             <>
                   {/* contenedor formulario */}
@@ -28,13 +42,24 @@ const FormContact = () => {
                                     <section className=" grid sm:grid-cols-2 gap-5 ">
                                           {/* Nombre */}
                                           <section className="">
-                                                <label htmlFor="" className="flex items-center gap-3">
+                                                <label htmlFor="nombre" className="flex items-center gap-3">
                                                       <img src={iconProfile} alt="" className="  " />
                                                       <p className=" text-xs font-medium ">Nombre*</p>
                                                 </label>
                                                 <input
                                                       required
-                                                      {...register('nombre')}
+                                                      {...register('nombre', {      
+                                                            required: "El nombre es obligatorio",
+                                                            pattern: {
+                                                                  value: /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/,
+                                                                  message: "Solo se admiten letras (sin números ni símbolos)"
+                                                            },
+                                                            minLength: {
+                                                                  value: 2,
+                                                                  message: "El nombre es demasiado corto"
+                                                            }
+                                                      })}
+                                                      id="nombre"
                                                       type="text"
                                                       className=" w-full p-1.5 mt-1.5 focus:border focus:border-gray-500 focus:outline-4 focus:outline-gray-300 bg-gray-100 border-0 rounded-md text-xs "
                                                       placeholder="Tu nombre completo"
@@ -43,7 +68,7 @@ const FormContact = () => {
 
                                           {/* email */}
                                           <section className="">
-                                                <label htmlFor="" className="flex items-center gap-3">
+                                                <label htmlFor="email" className="flex items-center gap-3">
                                                       <img src={iconEmail} alt="" className="  " />
                                                       <p className=" text-xs font-medium ">Email*</p>
                                                 </label>
@@ -51,6 +76,7 @@ const FormContact = () => {
                                                       required
                                                       {...register('email')}
                                                       type="text"
+                                                      id="email"
                                                       className=" w-full p-1.5 mt-1.5 focus:border focus:border-gray-500 focus:outline-4 focus:outline-gray-300 bg-gray-100 border-0 rounded-md text-xs "
                                                       placeholder="Tu nombre completo"
                                                 />
@@ -58,12 +84,13 @@ const FormContact = () => {
 
                                           {/* Telefono */}
                                           <section className="">
-                                                <label htmlFor="" className="flex items-center gap-3">
+                                                <label htmlFor="phone" className="flex items-center gap-3">
                                                       <img src={iconPhone} alt="" className="  " />
                                                       <p className=" text-xs font-medium ">Telefono</p>
                                                 </label>
                                                 <input
                                                       type="text"
+                                                      id="phone"
                                                       className=" w-full p-1.5 mt-1.5 focus:border focus:border-gray-500 focus:outline-4 focus:outline-gray-300 bg-gray-100 border-0 rounded-md text-xs "
                                                       placeholder="Tu nombre completo"
                                                 />
@@ -71,11 +98,11 @@ const FormContact = () => {
 
                                           {/* Horario */}
                                           <section className="">
-                                                <label htmlFor="" className="flex items-center gap-3">
+                                                <label htmlFor="time" className="flex items-center gap-3">
                                                       <img src={iconCalendarForm} alt="" className="  " />
                                                       <p className=" text-xs font-medium ">Horario Preferido</p>
                                                 </label>
-                                                <select className=" w-full p-1.5 mt-1.5 focus:border focus:border-gray-500 focus:outline-4 focus:outline-gray-300 bg-gray-100 border-0 rounded-md text-xs ">
+                                                <select id="time" className=" w-full p-1.5 mt-1.5 focus:border focus:border-gray-500 focus:outline-4 focus:outline-gray-300 bg-gray-100 border-0 rounded-md text-xs ">
                                                       <option
                                                             value=""
                                                             className=" text-xs bg-white hover:bg-gray-100 p-4 "
@@ -118,7 +145,7 @@ const FormContact = () => {
 
                                     {/* Consulta */}
                                     <section className="">
-                                          <label htmlFor="" className="flex items-center gap-3">
+                                          <label htmlFor="consulta" className="flex items-center gap-3">
                                                 <svg
                                                       xmlns="http://www.w3.org/2000/svg"
                                                       width="20"
@@ -135,7 +162,7 @@ const FormContact = () => {
                                                 </svg>
                                                 <p className=" text-xs font-medium ">Tipo de consulta</p>
                                           </label>
-                                          <select className=" w-full p-1.5 mt-1.5 focus:border focus:border-gray-500 focus:outline-4 focus:outline-gray-300 bg-gray-100 border-0 rounded-md text-xs ">
+                                          <select id="consulta" className=" w-full p-1.5 mt-1.5 focus:border focus:border-gray-500 focus:outline-4 focus:outline-gray-300 bg-gray-100 border-0 rounded-md text-xs ">
                                                 <option
                                                       value=""
                                                       className=" text-xs bg-white hover:bg-gray-100 p-4 "
@@ -184,12 +211,12 @@ const FormContact = () => {
                                     {/* Notas */}
 
                                     <div className=" w-full sm:col-span-2  flex flex-col gap-1 ">
-                                          <label className=" font-medium text-xs  ">Mensaje*</label>
+                                          <label htmlFor="formNotas" className=" font-medium text-xs  ">Mensaje*</label>
                                           <textarea
                                                 required
-                                                {...register("notas")}
-                                                
-                                                id=""
+                                                {...register("formNotas")}
+
+                                                id="formNotas"
                                                 className=" p-1.5 text-xs resize-none h-16 focus:border focus:border-gray-500 focus:outline-4 focus:outline-gray-300 rounded-sm w-full  bg-gray-100"
                                                 placeholder="Describe consulta o situacion"
                                           />
@@ -200,12 +227,26 @@ const FormContact = () => {
                                           </p>
                                     </section>
 
-                                    <div className=" w-full sm:col-span-2 p-1.5 bg-blue-600 text-white text-xs text-center font-bold rounded-md ">
+                                    <div className=" w-full sm:col-span-2 p-1.5 bg-blue-600 hover:bg-blue-700 transition-colors duration-200 text-white text-xs text-center font-bold rounded-md ">
                                           <input type="submit" value="Enviar consulta" className="w-full" />
                                     </div>
                               </form>
                         </section>
                   </section>
+                  {
+                        send && createPortal(
+                              <>
+                                    <section className=" fixed top-0 left-0 flex justify-center items-center w-full h-full bg-blue-600/20  ">
+                                          <section className=" flex flex-col items-center  bg-white p-6 rounded-md ">
+                                                <p className=" text-lg font-medium ">Su mensaje se envio correctamente</p>
+                                                <p className="  font-medium ">¡Muchas gracias!</p>
+                                                <button className=" mt-5 bg-blue-400 py-1 px-4 rounded-md text-gray-100 " onClick={closePortal}>Volver</button>
+                                          </section>
+                                    </section>
+                              </>,
+                              document.body
+                        )
+                  }
             </>
       );
 };

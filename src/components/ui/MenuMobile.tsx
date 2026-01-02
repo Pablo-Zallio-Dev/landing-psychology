@@ -1,5 +1,4 @@
 import { useMenuMobile } from '../../store/menuStore';
-import Button from './Button'
 
 const MenuMobile = () => {
 
@@ -21,7 +20,7 @@ const MenuMobile = () => {
           <a href="#contact" className="  " onClick={changeState}>
             Contacto
           </a>
-          <Button className="primary w-full max-w-xl self-center py-2 px-4 bg-blue-500 text-white " onClick={changeState}>Agendar cita</Button>
+          <a href='#quote' className="primary w-full max-w-xl self-center py-2 px-4 bg-blue-600 text-white text-center  " onClick={changeState}>Agendar cita</a>
         </nav>
       </section>
   )

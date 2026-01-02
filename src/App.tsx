@@ -6,6 +6,7 @@ import BtnBack from './components/ui/BtnBack'
 import Review from './components/pages/Review'
 import Quote from './components/pages/Quote'
 import Contact from './components/pages/Contact'
+import Footer from './components/common/Footer'
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
         <BtnBack />
         <Quote />
         <Contact />
-        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <Footer />
       </main>
     </div>
   )

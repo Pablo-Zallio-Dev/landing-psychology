@@ -5,7 +5,7 @@ import Button from "../ui/Button";
 const Review = () => {
   return (
     <>
-      <section className=" flex flex-col items-center justify-center gap-20 py-14 ">
+      <section id="review" className=" flex flex-col items-center justify-center gap-20 py-14 ">
         {/* Contenedor de la seccion */}
         <section className=" px-3 max-w-2xl text-center lg:text-lg ">
           {/* Titulo de la seccion */}
@@ -37,9 +37,9 @@ const Review = () => {
               <img src={iconStar} alt="" />
             </section>
             <section className=" mt-5 py-3 border-t border-t-gray-300 ">
-              <section className="flex ">
+              <section className="flex items-end gap-1 ">
                 <p className="">Maria G.</p>
-                <p className=" text-slate-400 ">(19 Años)</p>
+                <p className=" text-slate-500 text-xs ">(19 Años)</p>
               </section>
               <p className="mt-1.5 text-slate-500 text-xs ">
                 Terapia para adicción a redes sociales
@@ -63,9 +63,9 @@ const Review = () => {
               <img src={iconStar} alt="" />
             </section>
             <section className=" mt-5 py-3 border-t border-t-gray-300 ">
-              <section className="flex ">
+              <section className="flex items-end gap-1 ">
                 <p className="">Carlos M.</p>
-                <p className=" text-slate-400 ">(22 Años)</p>
+                <p className=" text-slate-500 text-xs ">(22 Años)</p>
               </section>
               <p className="mt-1.5 text-slate-500 text-xs ">
                 Terapia individual para ansiedad
@@ -88,9 +88,9 @@ const Review = () => {
               <img src={iconStar} alt="" />
             </section>
             <section className=" mt-5 py-3 border-t border-t-gray-300 ">
-              <section className="flex ">
+              <section className="flex items-end gap-1 ">
                 <p className="">Familia Rodriguez.</p>
-                <p className=" text-slate-400 "></p>
+                <p className=" text-slate-500 text-xs "></p>
               </section>
               <p className="mt-1.5 text-slate-500 text-xs ">
                 Terapia familiar.
@@ -113,9 +113,9 @@ const Review = () => {
               <img src={iconStar} alt="" />
             </section>
             <section className=" mt-5 py-3 border-t border-t-gray-300 ">
-              <section className="flex ">
+              <section className="flex items-end gap-1 ">
                 <p className="">Andrea L.</p>
-                <p className=" text-slate-400 ">(17 Años)</p>
+                <p className=" text-slate-500 text-xs ">(17 Años)</p>
               </section>
               <p className="mt-1.5 text-slate-500 text-xs ">
                 Tratamiento para depresión
@@ -138,9 +138,9 @@ const Review = () => {
               <img src={iconStar} alt="" />
             </section>
             <section className=" mt-5 py-3 border-t border-t-gray-300 ">
-              <section className="flex ">
+              <section className="flex items-end gap-1 ">
                 <p className="">Miguel S.</p>
-                <p className=" text-slate-400 ">(20 Años)</p>
+                <p className=" text-slate-500 text-xs ">(20 Años)</p>
               </section>
               <p className="mt-1.5 text-slate-500 text-xs ">
                 Apoyo en crisis personal
@@ -163,9 +163,9 @@ const Review = () => {
               <img src={iconStar} alt="" />
             </section>
             <section className=" mt-5 py-3 border-t border-t-gray-300 ">
-              <section className="flex ">
+              <section className="flex items-end gap-1 ">
                 <p className="">Sofia P.</p>
-                <p className=" text-slate-400 ">(18 Años)</p>
+                <p className=" text-slate-500 text-xs ">(18 Años)</p>
               </section>
               <p className="mt-1.5 text-slate-500 text-xs ">
                 Terapia para manejo de emociones
@@ -185,9 +185,9 @@ const Review = () => {
           <section className=" flex flex-col sm:flex-row gap-4 ">
             <Button
               type="button"
-              className="btn btn-primary primary py-3 px-4 text-white bg-blue-600"
+              className="btn btn-primary primary py-3 px-4 text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
             >
-              <a href=""> Agendar mi primera cita </a>
+              <a href="#quote"> Agendar mi primera cita </a>
             </Button>
             <Button
               type="button"

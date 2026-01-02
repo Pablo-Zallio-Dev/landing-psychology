@@ -267,8 +267,8 @@ const Services = () => {
         <img className=" p-3 bg-blue-100 rounded-full " src={iconServiceHandLove} alt="" />
         <p className=" text-2xl ">¿No estás seguro qué servicio necesitas?</p>
         <p className=" text-slate-600 ">Agenda una consulta inicial donde evaluaremos juntos tus necesidades y diseñaremos el plan de tratamiento más adecuado para ti.</p>
-        <Button type="button" className="btn btn-primary primary py-3 px-4 text-white bg-blue-600 bg-blue-600 hover:bg-blue-700 transition-colors duration-200">
-          <a href=""> Solicitar Consulta Inicial </a>
+        <Button type="button" className="btn btn-primary primary py-3 px-4 text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200">
+          <a href="#contact"> Solicitar Consulta Inicial </a>
         </Button>
       </section>
     </div>

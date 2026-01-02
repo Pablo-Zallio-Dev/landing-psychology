@@ -1,4 +1,3 @@
-import Button from './Button'
 
 function MenuDesktop() {
   return (
@@ -15,7 +14,7 @@ function MenuDesktop() {
           <a href="#contact" className=" hover:text-blue-600 transition-colors duration-200  ">
             Contacto
           </a>
-          <Button className="primary py-3 px-4 bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-200">Agendar cita</Button>
+          <a href="#quote" className="primary py-3 px-4 bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-200">Agendar cita</a>
         </nav>
   )
 }
